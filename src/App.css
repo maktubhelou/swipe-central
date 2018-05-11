@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  background-color: darkblue;
+  color: white;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.tab_content {
+  background-color: lightblue;
+  color: darkblue;
+  padding: 16px;
+}
+
+.selected {
+  text-decoration: underline;
+  background-color: white;
+  color: lightskyblue;
+}
+
+.unselected {
+  text-decoration: none;
+  color: white;
+}
+
