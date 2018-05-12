@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { TabList, Tab } from './components/Tabs';
 import Checkout from './components/Checkout';
-import Payment from './components/Payment';
+import Payments from './components/Payments';
+import { publicKey, secretKey } from './keys/stripekeys';
+import { withStripe } from './components/Stripe';
 import './App.css';
+
+const SuperCheckout = withStripe(Checkout, publicKey, secretKey);
+const SuperPayments = withStripe(Payments, publicKey, secretKey);
 
 class App extends Component {
   constructor(props) {
@@ -15,8 +20,8 @@ class App extends Component {
   render() {
     return (
       <TabList tabs={this.state.tabs}>
-        <Checkout name="checkout" />
-        <Payment name="payment" />
+        <SuperCheckout name="checkout" />
+        <SuperPayments name="payments" />
       </TabList>
     );
   }

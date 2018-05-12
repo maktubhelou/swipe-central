@@ -7,8 +7,9 @@ Time spent: **X** hours spent in total
 + 11/05/2018 11:30am -> 12:20 ==> 50 min ;
 + 11/05/2018 14:50pm -> 15:30 ==> 40 min ;
 + 11/05/2018 19:00pm -> 20:00 ==> 60 min ;
++ 12/05/2018 14:20pm -> 15:40 ==> 80 min ; 
 
-total = 150 min (2.5 hours);git remote add origin https://github.com/maktubhelou/swipe-central.git
+total = 230 min (3.8 hours);git remote add origin https://github.com/maktubhelou/swipe-central.git
 
 ## User Stories
 
