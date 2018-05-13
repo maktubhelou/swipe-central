@@ -1,32 +1,8 @@
 import React, { Component } from 'react';
 
-export default class Checkout extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      loading: false,
-    }
-    this.getPayments = this.getPayments.bind(this);
-  }
-
-  componentDidMount() {
-    this.getPayments();
-  }
-  
-  async getPayments() {
-    this.setState({
-      loading: true
-    })
-    const chargesData = await this.props.getSecret('payments');
-    this.setState({
-      data: chargesData,
-      loading: false,
-    })
-  }
-
+export default class Payments extends Component {
   render() {
-    const payments = this.state.data.map(payment => <Payments payment={payment}/>);
+    const payments = this.props.data.map(payment => <Payment payment={payment}/>);
     return (
       <div>
         <h1>See all your payments here.</h1>
@@ -53,9 +29,8 @@ export default class Checkout extends Component {
   }
 }
 
-class Payments extends React.Component {
+class Payment extends React.Component {
   render() {
-    console.log(this.props);
     return (<tr>
       <td>{this.props.payment.id}</td>
       <td>{this.props.payment.amount}</td>

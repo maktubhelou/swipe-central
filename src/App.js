@@ -3,11 +3,11 @@ import { TabList, Tab } from './components/Tabs';
 import Checkout from './components/Checkout';
 import Payments from './components/Payments';
 import { publicKey, secretKey } from './keys/stripekeys';
-import { withStripe } from './components/Stripe';
+import { withStripe, withStripeData } from './components/Stripe';
 import './App.css';
 
 const SuperCheckout = withStripe(Checkout, publicKey, secretKey);
-const SuperPayments = withStripe(Payments, publicKey, secretKey);
+const SuperPayments = withStripeData(Payments, publicKey, secretKey, 'charges');
 
 class App extends Component {
   constructor(props) {

@@ -1,10 +1,47 @@
 import React from 'react';
 
+export function withStripeData(WrappedComponent, publicKey, secretKey, route) {
+  const base = class extends React.Component {
+    constructor(props) {
+      super(props);
+      this.refresh = this.refresh.bind(this);
+      this.state = {
+        data: [],
+        loading: false,
+      }
+    }
+
+    componentDidMount(props) {
+      this.refresh(); 
+    }
+
+    async refresh() {
+      this.setState({
+        loading: true,
+      })
+      const chargesData = await this.props.getSecret(route);
+      this.setState({
+        data: chargesData.data,
+        loading: false,
+      })
+    }
+
+    render() {
+      return <WrappedComponent
+        data={this.state.data}
+        loading={this.state.loading}
+        {...this.props}
+        />
+    }
+  }
+  return withStripe(base, publicKey, secretKey);
+}
+
 export function withStripe(WrappedComponent, publicKey, secretKey) {
   const request = async (route, method, key, postData) => {
     let postDataStr = null;
     if (postData) {
-    const postDataStr = Object.keys(postData).map(key => {
+    postDataStr = Object.keys(postData).map(key => {
       return `${key}=${postData[key]}`
     }).join('&')
     }
@@ -18,7 +55,6 @@ export function withStripe(WrappedComponent, publicKey, secretKey) {
     },
     body: postDataStr
     });
-
     return await response.json();
   }
 
