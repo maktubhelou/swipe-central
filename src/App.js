@@ -21,7 +21,10 @@ class App extends Component {
     return (
       <TabList tabs={this.state.tabs}>
         <SuperCheckout name="checkout" />
-        <SuperPayments name="payments" />
+        <SuperPayments name="charges" />
+        <Tab name="disputes">
+        <h1>Coming soon!</h1>
+        </Tab>
       </TabList>
     );
   }

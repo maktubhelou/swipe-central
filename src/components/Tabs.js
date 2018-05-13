@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 
 export class TabList extends Component {
   constructor(props) {
-  super(props); {
+  super(props); 
   this.state = {
     selected: null
-      }
     }
   }
 

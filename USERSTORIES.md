@@ -4,28 +4,29 @@
 
 Time spent: **X** hours spent in total
 ## Log
-+ 11/05/2018 11:30am -> 12:20 ==> 50 min ;
-+ 11/05/2018 14:50pm -> 15:30 ==> 40 min ;
-+ 11/05/2018 19:00pm -> 20:00 ==> 60 min ;
-+ 12/05/2018 14:20pm -> 15:40 ==> 80 min ; 
-+ 13/05/2018 10:40am -> 11:25 ==> 45 min ;
-+ 13/05/2018 11:30am -> 11:35 ==> 05 min ;
++ 11/05/2018 11:30 -> 12:20 ==> 50 min ;
++ 11/05/2018 14:50 -> 15:30 ==> 40 min ;
++ 11/05/2018 19:00 -> 20:00 ==> 60 min ;
++ 12/05/2018 14:20 -> 15:40 ==> 80 min ; 
++ 13/05/2018 10:40 -> 11:25 ==> 45 min ;
++ 13/05/2018 11:30 -> 11:35 ==> 05 min ; (committed)
++ 13/05/2018 13:45 -> 14:45 ==> 60 min ; (committed)
 
-total = 280 min (4 hours and 40 minutes );git remote add origin https://github.com/maktubhelou/swipe-central.git
+total = 340 min (5 hours and 40 minutes );git remote add origin https://github.com/maktubhelou/swipe-central.git
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User has two tabs, one for Checkout, and one for Charges.
-- [ ] User can see the currently active tab.
-- [ ] User can create a charge for a desired amount on the Checkout tab.
+- [√] User has two tabs, one for Checkout, and one for Charges.
+- [√] User can see the currently active tab.
+- [√] User can create a charge for a desired amount on the Checkout tab.
 - [ ] User sees an error message when there is a card processing error.
-- [ ] User can see past charges on the Charges tab.
+- [√] User can see past charges on the Charges tab.
 
 The following **optional** features are implemented:
 
-- [ ] User can specify currency as part of the charges.
+- [√] User can specify currency as part of the charges.
 - [ ] Clicking on a table header should sort the entries by that element.
 - [ ] User can refund charges from the charges tab. 
 - [ ] Graph of charges over time.
@@ -34,6 +35,9 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [√] User can see currency of charges in charges tab.
+- [ ] user gets alert box to confirm or reject currency charge with confirmation of amount and currency
+
 
 ## Video Walkthrough
 

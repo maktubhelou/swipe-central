@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { currencyTypes } from '../keys/currencyTypes';
 
 export default class Checkout extends Component {
   constructor(props) {
@@ -6,6 +7,7 @@ export default class Checkout extends Component {
     this.state = {
         chargeStatus: 'none',
         charge: 200,
+        currency: 'USD',
     }
     this.createCharge = this.createCharge.bind(this);
   }
@@ -13,6 +15,12 @@ export default class Checkout extends Component {
   changeValue(value) {
     this.setState({
       charge: value
+    })
+  }
+
+  changeCurrency(value) {
+    this.setState({
+      currency: value
     })
   }
 
@@ -34,7 +42,7 @@ export default class Checkout extends Component {
 
     const chargeDetails = {
       'amount': this.state.charge * 100,
-      'currency': 'usd',
+      'currency': this.state.currency,
       'description': 'test_charges',
       'source': tokenData.id
     }
@@ -46,14 +54,26 @@ export default class Checkout extends Component {
   }
 
   render() {
+    const currencyChoice = currencyTypes.map(cur => {
+      return <option 
+        value={cur}  
+        key={cur}
+        >
+        {cur}
+        </option>
+    })
     return (
       <div>
         <h1>{this.props.name}</h1>
         <div>
-        <input type="text" defaultValue={this.state.charge} onChange={(e) => this.changeValue(e.target.value)}></input>
+          Create a charge for:
+          <input type="text" defaultValue={this.state.charge + '.00'} onChange={(e) => this.changeValue(e.target.value)}></input>
+          <select onChange={(e => this.changeCurrency(e.target.value))}>
+            {currencyChoice}
+          </select>
         </div>
         <div>
-        <button onClick={this.createCharge} >Submit {this.state.charge}$ payment</button>
+        <button onClick={this.createCharge} >Submit {this.state.charge} payment in {this.state.currency}</button>
         </div>
         <h2>Current charge status: {this.state.chargeStatus}</h2>
       </div>
