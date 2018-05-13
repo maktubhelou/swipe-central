@@ -11,8 +11,8 @@ Time spent: **X** hours spent in total
 + 13/05/2018 10:40 -> 11:25 ==> 45 min ;
 + 13/05/2018 11:30 -> 11:35 ==> 05 min ; (committed)
 + 13/05/2018 13:45 -> 14:45 ==> 60 min ; (committed)
-
-total = 340 min (5 hours and 40 minutes );git remote add origin https://github.com/maktubhelou/swipe-central.git
++ 13/05/2018 20:00 -> 21:20 ==> 80 min ; (committed)
+total = 420 min (7 hours);
 
 ## User Stories
 
@@ -28,6 +28,7 @@ The following **optional** features are implemented:
 
 - [√] User can specify currency as part of the charges.
 - [ ] Clicking on a table header should sort the entries by that element.
+    [ ] not fully functional yet. Need to fix bug by which it requires two clicks. Also need to separate out the "toggle" button or make it toggle each time with a default as ASC...
 - [ ] User can refund charges from the charges tab. 
 - [ ] Graph of charges over time.
 - [ ] Third tab for disputes. 

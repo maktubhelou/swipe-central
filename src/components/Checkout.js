@@ -49,7 +49,7 @@ export default class Checkout extends Component {
 
     const chargeResponse = await this.props.postSecret('charges', chargeDetails);
     this.setState({
-      chargeStatus: chargeResponse.id,
+      chargeStatus: 'Charge Complete: ' + chargeResponse.id,
     })
   }
 

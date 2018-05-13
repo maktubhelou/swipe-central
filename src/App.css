@@ -30,3 +30,27 @@
   color: white;
 }
 
+.table-header {
+  font-weight: bold;
+}
+
+table {
+  border: none;
+}
+
+tbody tr:nth-child(odd){
+  background-color: rgb(151, 177, 226);
+  color: #fff;
+}
+
+thead {
+  background-color: #fff;
+}
+
+thead td {
+  cursor: pointer;
+}
+
+td {
+  padding: 10px;
+}

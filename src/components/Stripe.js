@@ -5,9 +5,14 @@ export function withStripeData(WrappedComponent, publicKey, secretKey, route) {
     constructor(props) {
       super(props);
       this.refresh = this.refresh.bind(this);
-      this.state = {
+      this.setSortBy = this.setSortBy.bind(this);
+      this.sortList = this.sortList.bind(this);
+      this.toggleSortOrder = this.toggleSortOrder.bind(this);
+        this.state = {
         data: [],
         loading: false,
+        sortCriteria: null,
+        sortOrder: 'asc',
       }
     }
 
@@ -25,11 +30,50 @@ export function withStripeData(WrappedComponent, publicKey, secretKey, route) {
         loading: false,
       })
     }
+    
+    sortList = (key, order = this.state.sortOrder) => {
+
+      return function (a, b) {
+          if(!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+              return 0;
+          }
+          
+      const varA = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+      const varB = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+  
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return (
+          (order === 'desc') ? (comparison * -1) : comparison
+      );
+    };
+  }
+
+    setSortBy(sortCriteria) {
+      this.setState({
+        sortCriteria: sortCriteria,
+      })
+      this.state.data.sort(this.sortList(this.state.sortCriteria));
+    }
+
+    toggleSortOrder() {
+      this.setState({
+        sortOrder: (this.state.sortOrder === 'asc') ? 'desc' : 'asc' 
+      })
+      console.log(this.state)
+    }
+
 
     render() {
       return <WrappedComponent
         data={this.state.data}
         loading={this.state.loading}
+        setSortBy={this.setSortBy}
+        toggleSortOrder={this.toggleSortOrder}
         {...this.props}
         />
     }

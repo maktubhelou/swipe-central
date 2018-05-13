@@ -9,14 +9,14 @@ export default class Payments extends Component {
         <div>
           <h2>Payments</h2>
           {this.props.loading ? <div>Loading...</div> : null}
-          <table>
+          <table className="payment-table" cellSpacing="0">
             <thead>
-              <tr>
-                <td>ID</td>
-                <td>Amount</td>
-                <td>Refunded</td>
-                <td>Disputed</td>
-                <td>Refund</td>
+              <tr className="table-header">
+                <td onClick={() => this.props.setSortBy('id')}>ID <button title="toggle" onClick={() => this.props.toggleSortOrder()}>toggle</button></td>
+                <td onClick={() => this.props.setSortBy('amount')}>Amount</td>
+                <td onClick={() => this.props.setSortBy('refunded')}>Refunded</td>
+                <td onClick={() => this.props.setSortBy('disputed')}>Disputed</td>
+                <td onClick={() => this.props.setSortBy('refund')}>Refund</td>
               </tr>
             </thead>
             <tbody>
