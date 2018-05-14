@@ -13,8 +13,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabs: ["payment", "checkout"]
-    }
+      tabs: ['payment', 'checkout'],
+    };
   }
 
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
         <SuperCheckout name="checkout" />
         <SuperPayments name="charges" />
         <Tab name="disputes">
-        <h1>Coming soon!</h1>
+          <h1>Coming soon!</h1>
         </Tab>
       </TabList>
     );

@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 export class TabList extends Component {
   constructor(props) {
-  super(props); 
-  this.state = {
-    selected: null
-    }
+    super(props);
+    this.state = {
+      selected: null,
+    };
   }
 
   componentDidMount() {
-    let defaultTab = React.Children.toArray(this.props.children).map((child) => child.props.name)[0];
+    const defaultTab = React.Children.toArray(this.props.children).map(child => child.props.name)[0];
     this.setState({
       selected: defaultTab
     })
