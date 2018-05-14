@@ -5,7 +5,8 @@ const Payments = ({
   data,
   loading,
   toggleSortOrder,
-  setSortBy
+  setSortBy,
+  sortOrder,
 }) => {
   const payments = data.map(payment => <Payment payment={payment} key={payment.id} />);
   return (
@@ -13,11 +14,12 @@ const Payments = ({
       <h1>See all your payments here.</h1>
       <div>
         <h2>Payments</h2>
+        <div className="sort-button" title="toggle" onClick={() => toggleSortOrder()}>Sort Order: {sortOrder}</div>
         {loading ? <div>Loading...</div> : null}
         <table className="payment-table" cellSpacing="0">
           <thead>
             <tr className="table-header">
-              <td onClick={() => setSortBy('id')}>ID <button title="toggle" onClick={() => toggleSortOrder()}>toggle</button></td>
+              <td onClick={() => setSortBy('id')}>ID</td>
               <td onClick={() => setSortBy('amount')}>Amount</td>
               <td onClick={() => setSortBy('refunded')}>Refunded</td>
               <td onClick={() => setSortBy('disputed')}>Disputed</td>
@@ -56,5 +58,6 @@ Payments.propTypes = {
   loading: PropTypes.bool,
   setSortBy: PropTypes.func,
   toggleSortOrder: PropTypes.func,
+  sortOrder: PropTypes.string,
 };
 

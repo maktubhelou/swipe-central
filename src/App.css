@@ -1,3 +1,11 @@
+.header {
+  font-size: 56px;
+  text-align: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: rgb(248, 214, 171);
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -7,31 +15,55 @@
 .tabs {
   display: flex;
   flex-direction: column;
-  background-color: darkblue;
+  background-color: #fff;
   color: white;
   padding: 16px;
   cursor: pointer;
 }
 
 .tab_content {
-  background-color: lightblue;
-  color: darkblue;
+  background-color: rgb(230, 241, 245);
+  width: 100%;
+  color: rgb(27, 110, 161);
   padding: 16px;
 }
 
 .selected {
   text-decoration: underline;
   background-color: white;
-  color: lightskyblue;
+  color: rgb(27, 110, 161);
 }
 
 .unselected {
   text-decoration: none;
-  color: white;
+  color: #67787c;
+}
+
+.unselected:hover{
+  text-decoration: underline;
 }
 
 .table-header {
   font-weight: bold;
+}
+
+.sort-button, .input {
+  padding: 8px;
+  margin: 8px 0;
+  background-color: #fff;
+  border: 1px solid rgb(253, 154, 24);
+}
+
+.mX {
+  margin-left: 16px;
+}
+
+.sort-button {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 table {
@@ -39,12 +71,11 @@ table {
 }
 
 tbody tr:nth-child(odd){
-  background-color: rgb(151, 177, 226);
-  color: #fff;
+  background-color: rgb(204, 236, 255);
 }
 
 thead {
-  background-color: #fff;
+  background-color: rgb(248, 214, 171);
 }
 
 thead td {

@@ -21,11 +21,14 @@ class App extends Component {
 
   render() {
     return (
-      <TabList tabs={this.state.tabs}>
-        <SuperCheckout name="checkout" />
-        <SuperPayments name="charges" />
-        <SuperDisputes name="disputes" />
-      </TabList>
+      <div>
+        <h1 className="header">Stripe Central</h1>
+        <TabList tabs={this.state.tabs}>
+          <SuperCheckout name="checkout" />
+          <SuperPayments name="charges" />
+          <SuperDisputes name="disputes" />
+        </TabList>
+      </div>
     );
   }
 }

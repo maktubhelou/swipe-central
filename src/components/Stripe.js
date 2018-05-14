@@ -68,6 +68,7 @@ export function withStripeData(WrappedComponent, publicKey, secretKey, route) {
         loading={this.state.loading}
         setSortBy={this.setSortBy}
         toggleSortOrder={this.toggleSortOrder}
+        sortOrder={this.state.sortOrder}
         {...this.props}
       />);
     }

@@ -5,7 +5,8 @@ const Disputes = ({
   data,
   loading,
   toggleSortOrder,
-  setSortBy
+  setSortBy,
+  sortOrder
 }) => {
   const disputes = data.map(dispute => <Dispute dispute={dispute} key={dispute.id} />);
   return (
@@ -13,11 +14,12 @@ const Disputes = ({
       <h1>See all your disputes here.</h1>
       <div>
         <h2>Disputes</h2>
+        <div className="sort-button" title="toggle" onClick={() => toggleSortOrder()}>Sort Order: {sortOrder}</div>
         {loading ? <div>Loading...</div> : null}
         <table className="payment-table" cellSpacing="0">
           <thead>
             <tr className="table-header">
-              <td onClick={() => setSortBy('id')}>ID <button title="toggle" onClick={() => toggleSortOrder()}>toggle</button></td>
+              <td onClick={() => setSortBy('id')}>ID</td>
               <td onClick={() => setSortBy('amount')}>Amount</td>
               <td onClick={() => setSortBy('refunded')}>Refunded</td>
               <td onClick={() => setSortBy('refund')}>Reason</td>
@@ -54,5 +56,6 @@ Disputes.propTypes = {
   loading: PropTypes.bool,
   setSortBy: PropTypes.func,
   toggleSortOrder: PropTypes.func,
+  sortOrder: PropTypes.string,
 };
 

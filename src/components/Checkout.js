@@ -72,13 +72,13 @@ export default class Checkout extends Component {
         <h1>{this.props.name}</h1>
         <div>
           Create a charge for:
-          <input type="text" defaultValue={`${this.state.charge}.00`} onChange={e => this.changeValue(e.target.value)} />
-          <select onChange={(e => this.changeCurrency(e.target.value))}>
+          <input className="input mX" type="text" defaultValue={`${this.state.charge}.00`} onChange={e => this.changeValue(e.target.value)} />
+          <select className="input mX" onChange={(e => this.changeCurrency(e.target.value))}>
             {currencyChoice}
           </select>
         </div>
         <div>
-          <button onClick={this.createCharge}>
+          <button className="input pointer" onClick={this.createCharge}>
             Submit {this.state.charge} payment in {this.state.currency}
           </button>
         </div>
