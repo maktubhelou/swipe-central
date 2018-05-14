@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Payments = ({
+const Disputes = ({
   data,
   loading,
   toggleSortOrder,
   setSortBy
 }) => {
-  const payments = data.map(payment => <Payment payment={payment} key={payment.id} />);
+  const disputes = data.map(dispute => <Dispute dispute={dispute} key={dispute.id} />);
   return (
     <div>
-      <h1>See all your payments here.</h1>
+      <h1>See all your disputes here.</h1>
       <div>
-        <h2>Payments</h2>
+        <h2>Disputes</h2>
         {loading ? <div>Loading...</div> : null}
         <table className="payment-table" cellSpacing="0">
           <thead>
@@ -20,12 +20,11 @@ const Payments = ({
               <td onClick={() => setSortBy('id')}>ID <button title="toggle" onClick={() => toggleSortOrder()}>toggle</button></td>
               <td onClick={() => setSortBy('amount')}>Amount</td>
               <td onClick={() => setSortBy('refunded')}>Refunded</td>
-              <td onClick={() => setSortBy('disputed')}>Disputed</td>
-              <td onClick={() => setSortBy('refund')}>Refund</td>
+              <td onClick={() => setSortBy('refund')}>Reason</td>
             </tr>
           </thead>
           <tbody>
-            {payments}
+            {disputes}
           </tbody>
         </table>
       </div>
@@ -33,25 +32,24 @@ const Payments = ({
   );
 };
 
-const Payment = ({ payment }) =>
+const Dispute = ({ dispute }) =>
   (
     <tr>
-      <td>{payment.id}</td>
-      <td>{payment.currency.toUpperCase()}: {(payment.amount / 100).toFixed(2)}</td>
-      <td>{payment.refunded.toString()}</td>
-      <td>{(payment.dispute != null).toString()}</td>
-      <td>{payment.refundReason}</td>
-      <td><button disabled={payment.refund || payment.dispute} /></td>
+      <td>{dispute.id}</td>
+      <td>{dispute.currency.toUpperCase()}: {(dispute.amount / 100).toFixed(2)}</td>
+      <td>N/A</td>
+      <td>{dispute.reason}</td>
+      <td><button disabled={dispute.status !== 'needs_response'} /></td>
     </tr>
   );
 
-export default Payments;
+export default Disputes;
 
-Payment.propTypes = {
-  payment: PropTypes.object,
+Dispute.propTypes = {
+  dispute: PropTypes.object,
 };
 
-Payments.propTypes = {
+Disputes.propTypes = {
   data: PropTypes.array,
   loading: PropTypes.bool,
   setSortBy: PropTypes.func,

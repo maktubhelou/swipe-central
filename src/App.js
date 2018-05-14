@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { TabList, Tab } from './components/Tabs';
+import TabList from './components/TabList';
 import Checkout from './components/Checkout';
 import Payments from './components/Payments';
+import Disputes from './components/Disputes';
 import { publicKey, secretKey } from './keys/stripekeys';
 import { withStripe, withStripeData } from './components/Stripe';
 import './App.css';
 
 const SuperCheckout = withStripe(Checkout, publicKey, secretKey);
 const SuperPayments = withStripeData(Payments, publicKey, secretKey, 'charges');
+const SuperDisputes = withStripeData(Disputes, publicKey, secretKey, 'disputes');
 
 class App extends Component {
   constructor(props) {
@@ -22,9 +24,7 @@ class App extends Component {
       <TabList tabs={this.state.tabs}>
         <SuperCheckout name="checkout" />
         <SuperPayments name="charges" />
-        <Tab name="disputes">
-          <h1>Coming soon!</h1>
-        </Tab>
+        <SuperDisputes name="disputes" />
       </TabList>
     );
   }
