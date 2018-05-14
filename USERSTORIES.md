@@ -21,23 +21,24 @@ The following **required** functionality is completed:
 - [√] User has two tabs, one for Checkout, and one for Charges.
 - [√] User can see the currently active tab.
 - [√] User can create a charge for a desired amount on the Checkout tab.
-- [ ] User sees an error message when there is a card processing error.
+- [√] User sees an error message when there is a card processing error.
 - [√] User can see past charges on the Charges tab.
 
 The following **optional** features are implemented:
 
 - [√] User can specify currency as part of the charges.
-- [ ] Clicking on a table header should sort the entries by that element.
+- [√] Clicking on a table header should sort the entries by that element.
     [ ] not fully functional yet. Need to fix bug by which it requires two clicks. Also need to separate out the "toggle" button or make it toggle each time with a default as ASC...
 - [ ] User can refund charges from the charges tab. 
 - [ ] Graph of charges over time.
-- [ ] Third tab for disputes. 
+- [√] Third tab for disputes. (Diplays Disputes)
 
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
 - [√] User can see currency of charges in charges tab.
 - [ ] user gets alert box to confirm or reject currency charge with confirmation of amount and currency
+
 
 
 ## Video Walkthrough
@@ -50,7 +51,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Have the following warning which I was unable to figure out:
+Warning: Can't call setState (or forceUpdate) on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+    in base (at Stripe.js:113)
+    in _class (at App.js:27)hallenges encountered while building the app.
 
 ## License
 

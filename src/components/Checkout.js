@@ -49,9 +49,15 @@ export default class Checkout extends Component {
     };
 
     const chargeResponse = await this.props.postSecret('charges', chargeDetails);
-    this.setState({
-      chargeStatus: `Charge Complete:  ${chargeResponse.id}`,
-    });
+    if (chargeResponse.id) {
+      this.setState({
+        chargeStatus: `Charge Complete:  ${chargeResponse.id}`,
+      });
+    } else {
+      this.setState({
+        chargeStatus: 'Charge Declined',
+      });
+    }
   }
 
   render() {
