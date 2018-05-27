@@ -49,5 +49,4 @@ export default class TabList extends Component {
 
 TabList.propTypes = {
   children: PropTypes.array,
-
 };

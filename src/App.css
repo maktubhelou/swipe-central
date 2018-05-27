@@ -47,7 +47,7 @@
   font-weight: bold;
 }
 
-.sort-button, .input {
+button.sort-button, .input {
   padding: 8px;
   margin: 8px 0;
   background-color: #fff;
@@ -58,7 +58,7 @@
   margin-left: 16px;
 }
 
-.sort-button {
+button.sort-button {
   cursor: pointer;
 }
 

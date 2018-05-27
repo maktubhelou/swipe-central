@@ -11,26 +11,15 @@ const SuperCheckout = withStripe(Checkout, publicKey, secretKey);
 const SuperPayments = withStripeData(Payments, publicKey, secretKey, 'charges');
 const SuperDisputes = withStripeData(Disputes, publicKey, secretKey, 'disputes');
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tabs: ['payment', 'checkout'],
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <h1 className="header">Stripe Central</h1>
-        <TabList tabs={this.state.tabs}>
-          <SuperCheckout name="checkout" />
-          <SuperPayments name="charges" />
-          <SuperDisputes name="disputes" />
-        </TabList>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <h1 className="header">Stripe Central</h1>
+    <TabList>
+      <SuperCheckout name="checkout" />
+      <SuperPayments name="charges" />
+      <SuperDisputes name="disputes" />
+    </TabList>
+  </div>
+);
 
 export default App;
