@@ -14,7 +14,9 @@ const Disputes = ({
       <h1>See all your disputes here.</h1>
       <div>
         <h2>Disputes</h2>
-        <div className="sort-button" title="toggle" onClick={() => toggleSortOrder()}>Sort Order: {sortOrder}</div>
+        <button className="sort-button" title="toggle" onClick={() => toggleSortOrder()}>
+          Sort Order: {sortOrder}
+        </button>
         {loading ? <div>Loading...</div> : null}
         <table className="payment-table" cellSpacing="0">
           <thead>
